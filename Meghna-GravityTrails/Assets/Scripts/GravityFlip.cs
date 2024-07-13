@@ -8,7 +8,7 @@ public class GravityFlip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Update();
+      
     }
 
     // Update is called once per frame
@@ -18,8 +18,9 @@ public class GravityFlip : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 Vector3 newDirection = transform.localScale;
-                avatarRigidbody.gravityScale += -1;
+                avatarRigidbody.gravityScale *= -1;
                 newDirection.y *= -1;
+                transform.localScale = newDirection;
             }
         }
     }
