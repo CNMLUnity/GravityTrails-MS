@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCollision : MonoBehaviour
 {
+    public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,11 @@ public class EnemyCollision : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(0);
+        }
+        if(collision.gameObject.tag == "GetKilled")
+        {
+            Destroy(collision.gameObject);
+            Destroy(enemy);
         }
     }
 }
