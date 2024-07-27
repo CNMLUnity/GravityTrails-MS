@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 public class EnemyMovement : MonoBehaviour
 {
     public float maxXPosition;
     public float minXPosition;
     public float xDirection;
+    // public int enemiesRemaining;
+
+    
     public Rigidbody2D enemyRigidBody;
+    
     // Start is called before the first frame update
     void Start()
     {
+        // enemiesRemaining = 6;
+        
         
     }
 
@@ -29,7 +36,6 @@ public class EnemyMovement : MonoBehaviour
             xDirection *= -1;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
-
         }
 
         if (transform.position.x > maxXPosition)
@@ -42,4 +48,6 @@ public class EnemyMovement : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10 * xDirection);
 
     }
+
+    
 }

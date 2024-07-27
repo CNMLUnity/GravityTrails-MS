@@ -9,6 +9,7 @@ TagManager:
   - Quad
   - Collectable
   - GetKilled
+  - Exit
   layers:
   - Default
   - TransparentFX
