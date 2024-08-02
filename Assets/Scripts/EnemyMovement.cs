@@ -40,12 +40,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (transform.position.x > maxXPosition)
         {
-            xDirection *= -1;
             transform.position = new Vector3(maxXPosition, transform.position.y, transform.position.z);
+            xDirection *= -1;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         }
-        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10 * xDirection);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 100 * xDirection);
 
     }
 

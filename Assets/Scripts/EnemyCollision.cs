@@ -8,12 +8,17 @@ public class EnemyCollision : MonoBehaviour
     public GameObject enemy;
     public Teleport tpScript;
     public int enemyCount;
+    private int currentScene;
     // Start is called before the first frame update
     void Start()
     {
-        tpScript = GameObject.Find("Portal").GetComponent<Teleport>(); 
-        //enemyCount = tpScript.enemyCount;
-        print("starting count: "+ tpScript.enemyCount);
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        if(currentScene == 0){
+            tpScript = GameObject.Find("Portal").GetComponent<Teleport>(); 
+            
+            //enemyCount = tpScript.enemyCount;
+            print("starting count: "+ tpScript.enemyCount);
+        }
     }
 
     // Update is called once per frame
@@ -34,8 +39,10 @@ public class EnemyCollision : MonoBehaviour
             print("collision");
             Destroy(collision.gameObject);
             Destroy(enemy);
-            tpScript.enemyCount--;
-            print("killed enemy: "+ tpScript.enemyCount);
+            if(currentScene == 0){
+                tpScript.enemyCount--;
+                print("killed enemy: "+ tpScript.enemyCount);
+            }
         }
     }
 }
