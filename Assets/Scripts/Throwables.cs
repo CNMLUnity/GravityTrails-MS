@@ -17,7 +17,7 @@ public class Throwables : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Collectable")
+        if(collision.gameObject.tag == "GetKilled" || collision.gameObject.tag == "Collectable")
         {
             throwableCounter += 1;
             collectableCounter.text = throwableCounter.ToString();
@@ -29,7 +29,7 @@ public class Throwables : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && throwableCounter > 0)
         {
-            offset =  transform.localScale.x * new Vector3(1, 0, 0);
+            offset =  transform.localScale.x * new Vector3(2, 0, 0);
             Vector3 throwablePosition = transform.position + offset; 
             Instantiate(objectThrown, throwablePosition, transform.rotation);
             throwableCounter -= 1;

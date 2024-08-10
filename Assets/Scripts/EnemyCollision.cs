@@ -32,7 +32,7 @@ public class EnemyCollision : MonoBehaviour
         
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         if(collision.gameObject.tag == "GetKilled")
         {
