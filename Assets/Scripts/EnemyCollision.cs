@@ -29,20 +29,29 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(collision.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(1);
-        }
+
         if(collision.gameObject.tag == "GetKilled")
-        {
-            print("collision");
-            Destroy(collision.gameObject);
-            Destroy(enemy);
-            if(currentScene == 0){
-                tpScript.enemyCount--;
-                print("killed enemy: "+ tpScript.enemyCount);
+            {
+                print("collision");
+                Destroy(collision.gameObject);
+                Destroy(enemy);
+                if(currentScene == 0){
+                    tpScript.enemyCount--;
+                    print("killed enemy: "+ tpScript.enemyCount);
+                }
             }
+        
+        else if(collision.gameObject.tag == "Player")
+        {
+             
+            if(currentScene == 0){
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
+            }
+           
         }
     }
 }
